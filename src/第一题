@@ -6,7 +6,8 @@ trait Signal{
 
 enum SignalType {
     RedSignal,
-    GreenSignal
+    GreenSignal,
+    YellowLight
 }
 
 impl Signal for SignalType{
@@ -21,6 +22,9 @@ impl Signal for SignalType{
             SignalType::RedSignal => {
                 5
             }
+            SignalType::YellowLight => {
+                7
+            }
         }
     }
 }
@@ -29,8 +33,11 @@ fn main(){
 
     let rs = SignalType::RedSignal;
     let rg = SignalType::GreenSignal;
+    let sy = SignalType::YellowLight;
 
     println!("红灯持续时间为{}分钟",rs.continued());
 
     println!("绿灯持续时间为{}分钟",rg.continued());
+
+    println!("黄灯持续时间为{}分钟",sy.continued());
 }
