@@ -1,0 +1,20 @@
+fn main() {
+    
+    let ss1 = vec![1,2,3,4,4294967295];
+
+    let ss2 = vec![1,2,3,4,5];
+
+    println!("溢出sum = {:?}",sum(ss1.as_slice()));
+    println!("sum = {:?}",sum(ss2.as_slice()));
+}
+
+fn sum(is:&[u32]) -> Option<u32>{
+
+    let mut ss:u32= 0;
+
+    let iter = is.into_iter();
+    for i in iter {
+        ss = ss.checked_add(*i)?;
+    }
+    return Some(ss);
+}

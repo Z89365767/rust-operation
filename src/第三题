@@ -1,0 +1,45 @@
+
+//第三题
+trait area {
+
+    fn AreaCalculate(&self) -> u64;
+}
+
+struct Round {}
+
+impl area for Round {
+
+    fn AreaCalculate(&self) -> u64 {
+        10
+    }
+}
+
+struct Triangle {}
+
+impl area for Triangle {
+
+    fn AreaCalculate(&self) -> u64 {
+        27
+    }
+}
+
+struct Square {}
+impl area for Square {
+
+    fn AreaCalculate(&self) -> u64 {
+        50
+    }
+}
+
+
+fn main() {
+
+    let round = Round{};
+    
+    Calculate(&round);
+}
+
+fn Calculate(a:&impl area) -> u64{
+
+    a.AreaCalculate()
+}
